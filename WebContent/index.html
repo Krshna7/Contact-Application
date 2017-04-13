@@ -190,12 +190,13 @@ background-color: red;
 							<td>
 							<button type="button" style="background-color: gainsboro! important" ng-click="edit(x.id,x.firstname,x.lastname,x.address,x.email,x.phonenumber)"
 								class="btn btn-success custom-width" >Edit</button></td>
-								<td><button type="button"  style="background-color: gainsboro! important" ng-click="deleteContact(x.id)" 
-								class="btn btn-danger custom-width" ng-hide="{{x.status=='Active'}}" >Delete</button></td>
-								<td><button type="button"  style="background-color:gainsboro! important" ng-click="InActivateContact(x.id)"
+							<td><button type="button"  style="background-color:gainsboro! important" ng-click="InActivateContact(x.id)"
 								class="btn btn-danger custom-width" ng-hide="{{x.status=='InActive'}}">InActivate</button>
 								<button type="button"  style="background-color:gainsboro! important" ng-click="ActivateContact(x.id)"
 								class="btn btn-danger custom-width" ng-hide="{{x.status=='Active'}}">Activate</button></td>
+								<td><button type="button"  style="background-color: gainsboro! important" ng-click="deleteContact(x.id)" 
+								class="btn btn-danger custom-width" ng-hide="{{x.status=='Active'}}" >Delete</button></td>
+					
 						</tr>
 					</tbody>
 				</table>
