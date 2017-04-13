@@ -26,27 +26,46 @@ app.controller('appCtrl',function($scope, $http) {
 	
        
        $scope.InActivateContact = function(idSel) {
-
+    	   var retVal = confirm("Do you Sure want to InActivate");
+           if (retVal == true) {
 $http.get("/Contact/ws/updateInformationStatus?idSel=" + idSel)
 //window.location = "index.html";
 alert('Contact InActivated');
-$scope.listUser();
-    	  }
+$scope.InActivelistUser();
+return true;
+           } else {
+               return false;
+    	       	  }
+       }
+    
        $scope.ActivateContact = function(idSel) {
-
+    	   var retVal = confirm("Do you Sure want to Activate");
+           if (retVal == true) {
     	   $http.get("/Contact/ws/updateStatus?idSel=" + idSel)
     	   //window.location = "index.html";
     	   alert('Contact Activated');
-    	   $scope.listUser();
+    	   $scope.ActivelistUser();
+    	   return true;
+           } else {
+               return false;
     	       	  }
+       }
        
        
        $scope.deleteContact = function(idSel) {
+    	   var retVal = confirm("Do you Sure want to delete");
+           if (retVal == true) {
+        	   $http.get("/Contact/ws/DeleteInformation?idSel=" + idSel)
+        	   //window.location = "index.html";
+        	   alert('Contact Deleted');
+        	   $scope.listUser();
+        	   
+               return true;
+           } else {
+               return false;
+           }
 
-    	   $http.get("/Contact/ws/DeleteInformation?idSel=" + idSel)
-    	   //window.location = "index.html";
-    	   alert('Contact Deleted');
-    	   $scope.listUser();
+    	   
     	       	  }
        
        
