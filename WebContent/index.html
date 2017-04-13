@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Contact</title>
+<script src="./lib/jquery-2.1.0.js"></script>
+<script src="./common/Utils.js"></script>
+<script type="text/javascript" src="./jquery/jquery.min.js"></script>
+
+<script type="text/javascript" src="./jquery/jquery.timepicker.js"></script>
+<link rel="stylesheet" type="text/css"
+	href="./jquery/jquery.timepicker.css" />
+<link type="text/css" href="./jquery/jquery-ui.css">
+<link type="text/css" href="./lib/jquery-ui.min.css">
+<script src="./lib/jquery-ui.min.js"></script>
+<script src="./lib/angular.min.js"></script>
+<script src="./angular/controller.js"></script>
+<style>
+body{
+background-color: red;
+}
+#table-wrapper {
+  position:relative;
+}
+#table-scroll {
+  height:410px;
+  overflow:auto;  
+  
+}
+#table-wrapper table {
+  width:100%;
+
+}
+#table-wrapper table * {
+ 
+  color:black;
+}
+#table-wrapper table thead th .text {
+  position:absolute;   
+  top:-20px;
+  z-index:2;
+  height:20px;
+  width:35%;
+  border:1px solid red;
+}
+</style>
+     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+</head>
+<body>
+
+
+
+
+	
+
+	<div ng-app="myApp" ng-controller="appCtrl">
+	
+	<!-- 
+		<table style="width:100%;height:100%; ">
+		      <tr>
+		          <td style="width:30%;">
+		          
+		          -->
+		     <div class="col-lg-4 col-md-12 col-sm-12 col-xs-12" style="padding:0!important;float:left;">     
+		          
+		          <div class="panel panel-default"  style="height:100%;">
+              <div class="panel-heading"  ><span class="lead">User Registration Form </span></div>
+              <div class="formcontainer" style="margin-left:20px;height:50%;" >
+                  <ng-form  name="myForm" class="form-horizontal"  novalidate>
+                      <input type="hidden" ng-model="id" />
+                      <div class="row" style="margin-top:40px;">
+                          <div class="form-group col-md-12">
+                              <label class="col-md-2 control-lable" for="uname" style="width:130px;">First Name</label>
+                              <div class="col-md-7">
+                                 <input type="text" ng-model="firstname" id="uname"  name="uname"  class="username form-control input-sm" placeholder="Enter your name" required ng-minlength="5" pattern="[a-zA-Z]+" ng-pattern-restrict ng-blur="validateFirstName();"  />
+                                  <div class="has-error" ng-show="myForm.$dirty && !validateatstart">
+                                      <span ng-show="myForm.uname.$error.required && !validateatstart ">This is a required field</span>
+                                      <span ng-show="myForm.uname.$error.minlength && !validateatstart ">Minimum length required is 5</span>
+                                      <span ng-show="myForm.uname.$invalid  && !validateatstart">This field is invalid </span>
+                                      <span ng-message="pattern" class="error-icn" ng-show="myForm.uname.$error.pattern && validateatstart ">Only Alphabets are allowed</span> </span>
+                                      
+                                  </div>
+                              </div>
+                          </div>
+                      </div>
+                         <div class="row" style="margin-top:40px;">
+                          <div class="form-group col-md-12">
+                              <label class="col-md-2 control-lable" for="uname1" style="width:130px;">Last Name</label>
+                              <div class="col-md-7">
+                                  <input type="text" ng-model="lastname" id="uname1"  name="uname1"  class="username form-control input-sm" placeholder="Enter your name" required ng-minlength="1" pattern="[a-zA-Z]+" ng-pattern-restrict  />
+                                  <div class="has-error" ng-show="myForm.$dirty &&  !validateatstart">
+                                      <span ng-show="myForm.uname1.$error.required &&  !validateatstart">This is a required field</span>
+                                      <span ng-show="myForm.uname1.$error.minlength  &&  !validateatstart">Minimum length required is 1</span>
+                                      <span ng-show="myForm.uname1.$invalid  &&  !validateatstart">This field is invalid </span>
+                                                                               <span ng-message="pattern" class="error-icn" ng-show="myForm.uname1.$error.pattern  &&  !validateatstart">Only Alphabets are allowed</span> </span>
+                                      
+                                  </div>
+                              </div>
+                          </div>
+                      </div> 
+                       
+                      
+ 
+                      <div class="row" style="margin-top:40px;">
+                          <div class="form-group col-md-12">
+                              <label class="col-md-2 control-lable" for="email" style="width:130px;">Email</label>
+                              <div class="col-md-7">
+                                  <input type="email" ng-model="email" id="email"  name="email"  class="email form-control input-sm" placeholder="Enter your Email" required/>
+                                  <div class="has-error" ng-show="myForm.$dirty  &&  !validateatstart">
+                                      <span ng-show="myForm.email.$error.required  &&  !validateatstart">This is a required field</span>
+                                      <span ng-show="myForm.email.$invalid  &&  !validateatstart">This field is invalid </span>
+                                   
+                                  </div>
+                              </div>
+                          </div>
+                      </div>
+                      <div class="row" style="margin-top:40px;">
+                          <div class="form-group col-md-12">
+                              <label class="col-md-2 control-lable" for="phone" style="width:130px;">Phone number</label>
+                              <div class="col-md-7">
+                                  <!-- input type="number" placeholder="Enter phonenumber" name="phonenumber" id="phonenumber"  ng-model="phonenumber" class="email form-control input-sm"/-->
+                                 <input type="text" id="cardno" name="phonenumber" ng-minlength="10" ng-model="phonenumber" class="email form-control input-sm" placeholder="Enter a Number" onkeypress='return event.charCode >= 48 && event.charCode <= 57' required>
+                                  <div class="has-error" ng-show="myForm.$dirty &&  !validateatstart">
+                                      <span ng-show="myForm.phonenumber.$error.required &&  !validateatstart">This is a required field</span>
+                                      <span ng-show="myForm.phonenumber.$error.minlength  &&  !validateatstart">Minimum length required is 10</span>
+                                    
+                                                                               <span ng-message="pattern" class="error-icn" ng-show="myForm.uname1.$error.pattern  &&  !validateatstart">Only Alphabets are allowed</span> </span>
+                                      
+                                  </div>
+                               </div>
+                          </div>
+                      </div>
+                       
+      
+ 
+                      <div class="row" align="center" style="margin-top:43px; margin-right: 10px">
+                          <div class="form-actions floatRight">
+                              <input type="button" style="background-color: dodgerblue! important; margin-right: 25px" ng-click="submitNew()"  value="{{!id ? 'Create' : 'Update'}}" class="btn btn-primary btn-sm" ng-disabled="myForm.$invalid">
+                              <button type="button" style="background-color: orange! important" ng-click="reset()" class="btn btn-warning btn-sm" >Reset Form</button>
+                          </div>
+                      </div>
+               
+                  </ng-form>
+                  
+              </div>
+          
+          </div>
+          
+		          <!-- 
+		          </td> 
+		          <td style="width:80%;">
+		          -->
+		          
+		          </div>
+		          <div class="col-lg-8 col-md-12 col-sm-12 col-xs-12" style="padding:0!important;float:left;">
+		          
+		          
+		          	<div class="panel panel-default" >
+			<!-- Default panel contents -->
+			<div class="panel-heading" >
+				<span class="lead">List of Users  <input type="button"  style="background-color: skyblue! important"ng-click="listUser()" id="btnlist"  value="List" class="btn btn-primary btn-sm" ></span>
+				<span class="lead"> <input type="button"  style="background-color: skyblue! important"ng-click="ActivelistUser()" id="btnlist"  value="ActiveList" class="btn btn-primary btn-sm" ></span>
+				<span class="lead"><input type="button"  style="background-color: skyblue! important"ng-click="InActivelistUser()" id="btnlist"  value="InActiveList" class="btn btn-primary btn-sm" ></span>
+			
+			</div>
+			<div class="tablecontainer" >
+			<div id="table-wrapper">
+  <div id="table-scroll" >
+				<table class="table table-hover" id="top" style="wdith:190%;" ng-show="names.length" cellspacing="10" style=" height: 100px; overflow: auto;">
+					<thead>
+						<tr>
+						 
+							<th>ID.</th>
+							<th>First Name</th>
+							<th>Last Name</th>
+							<th>Email</th>
+							<th>Phone</th>
+							<th>Status</th>
+							<th width="100">
+							<th width="100">
+						</tr>
+					</thead>
+					<tbody>
+						<tr ng-repeat="x in names">
+							<td>{{x.id}}</td>
+							<td>{{x.firstname}}</td>
+							<td>{{x.lastname}}</td>
+							<td>{{x.email}}</td>
+							<td>{{x.phonenumber}}</td>
+							<td>{{x.status}}</td>
+							<td>
+							<button type="button" style="background-color: gainsboro! important" ng-click="edit(x.id,x.firstname,x.lastname,x.address,x.email,x.phonenumber)"
+								class="btn btn-success custom-width" >Edit</button></td>
+								<td><button type="button"  style="background-color: gainsboro! important" ng-click="deleteContact(x.id)"
+								class="btn btn-danger custom-width" ng-hide="{{x.status=='Active'}}" >Delete</button></td>
+								<td><button type="button"  style="background-color:gainsboro! important" ng-click="InActivateContact(x.id)"
+								class="btn btn-danger custom-width" ng-hide="{{x.status=='InActive'}}">InActivate</button>
+								<button type="button"  style="background-color:gainsboro! important" ng-click="ActivateContact(x.id)"
+								class="btn btn-danger custom-width" ng-hide="{{x.status=='Active'}}">Activate</button></td>
+						</tr>
+					</tbody>
+				</table>
+				</div>
+				</div>
+			</div>
+		</div>
+		
+		
+		</div>
+		<!-- 
+		          
+		          </td>
+		      </tr>
+		</table>
+		      -->
+	
+
+	</div>
+
+
+</body>
+</html>
