@@ -2,7 +2,7 @@ Contact-Information:  This is a Single Page Application which helps users to cre
 
 
 ##  Project is hosted at : 
- http://ec2-35-166-87-232.us-west-2.compute.amazonaws.com/Contact/
+http://ec2-52-24-101-63.us-west-2.compute.amazonaws.com/Contact/
   * UserName: rama
   * Password: rama
 
